@@ -1,5 +1,5 @@
 
-###> symfony/framework-bundle ###
+###> symfony/framework-bundle ### https://symfony.com/blog/new-in-symfony-4-2-define-env-vars-per-environment
 /.env.local
 /.env.local.php
 /.env.*.local

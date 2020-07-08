@@ -16,8 +16,6 @@ class PostType extends AbstractType
             ->add('auteur')
             ->add('contenu')
             ->add('categorie')
-            
-           
         ;
     }
 

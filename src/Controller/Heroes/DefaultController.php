@@ -1,11 +1,12 @@
 <?php
 
 
-namespace App\Controller;
+namespace App\Controller\Heroes;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Flex\Response;
 
 class DefaultController extends AbstractController
 {

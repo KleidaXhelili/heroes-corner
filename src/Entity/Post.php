@@ -41,12 +41,6 @@ class Post
      * @ORM\ManyToOne(targetEntity=BlogCategory::class, inversedBy="posts")
      */
     private $blog_category;
-
-    /**
-     * @ORM\Column(type="string", length=30)
-     */
-    private $categorie;
-
     
 
     public function getId(): ?int
@@ -113,18 +107,5 @@ class Post
 
         return $this;
     }
-
-    public function getCategorie(): ?string
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(string $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
    
 }

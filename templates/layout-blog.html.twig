@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block header %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Actualités</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Interviews</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="">La Boutique</a>
+                </li>
+
+            </ul>
+
+            <li class="nav-item active">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <em>Salut! {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a  href="">Se déconnecter</a>
+                {% else %}
+                    <a  href="">Se connecter</a> |
+                    <a  href="">S'inscrire</a>
+                {% endif %}
+            </li>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block footer %}
+    {% include 'components/_footer.html.twig' %}
+{% endblock %}

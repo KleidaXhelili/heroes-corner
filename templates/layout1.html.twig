@@ -19,27 +19,23 @@
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="">Nouveautés </a>
+                            <a class="nav-link" href="">Actualités</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="">Comics</a>
+                            <a class="nav-link" href="">Interviews</a>
                         </li>
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="">Manga </a>
+                            <a class="nav-link" href="">La Boutique</a>
                         </li>
 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="">BD</a>
-                        </li>
                     </ul>
 
                         <li class="nav-item active">   
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <em>Salut! {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a  href="">Se déconnecter</a>
                             {% else %}
-                                <a href="">Panier</a>
                                 <a  href="">Se connecter</a> |
                                 <a  href="">S'inscrire</a>
                             {% endif %}

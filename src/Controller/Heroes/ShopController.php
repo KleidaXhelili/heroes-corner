@@ -24,4 +24,8 @@ class ShopController extends AbstractController
     {
         return $this->render('heroes/shop/index.html.twig');
     }
+
+    # TODO Une fonction pour afficher les produits d'une categorie
+    # TODO Une fonction pour afficher un produit
+    # TODO Une fonction pour afficher le panier
 }

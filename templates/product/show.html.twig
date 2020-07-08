@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product{% endblock %}
+{% block title %}Produit{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
+    <h1>Ce que nos Heroes ont Produit!</h1>
 
     <table class="table">
         <tbody>
@@ -24,15 +24,15 @@
                 <td>{{ product.dessinateur }}</td>
             </tr>
             <tr>
-                <th>Scenariste</th>
+                <th>Scénariste</th>
                 <td>{{ product.scenariste }}</td>
             </tr>
             <tr>
-                <th>Editeur</th>
+                <th>Éditeur</th>
                 <td>{{ product.editeur }}</td>
             </tr>
             <tr>
-                <th>Resume</th>
+                <th>Résumé</th>
                 <td>{{ product.resume }}</td>
             </tr>
             <tr>
@@ -46,9 +46,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('product_index') }}">back to list</a>
+    <a href="{{ path('product_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('product_edit', {'id': product.id}) }}">edit</a>
+    <a href="{{ path('product_edit', {'id': product.id}) }}">Éditer</a>
 
     {{ include('product/_delete_form.html.twig') }}
 {% endblock %}

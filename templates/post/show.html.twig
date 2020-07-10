@@ -39,9 +39,9 @@
 
     <div class="container">
         <h4>Liste des commentaires</h4>
-        {% for commentaire in commentaires %}
-            Posté par {{ commentaire.user }} le {{commentaire.createdAt|date('Y-m-d H:i:s')}}
-            <p> {{ commentaire.contenu}} </p>
+        {% for commentaire in post.comments %}
+            Posté par {{ commentaire.user.prenom }} le {{commentaire.createdAt|date('Y-m-d H:i:s')}}
+            <p> {{ commentaire.text}} </p>
         {% endfor %}
     </div>
 

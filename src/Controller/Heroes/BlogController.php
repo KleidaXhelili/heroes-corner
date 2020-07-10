@@ -39,6 +39,7 @@ class BlogController extends AbstractController
      * Afficher les articles d'une categorie
      * @Route("/category/{id}", name="blog_category", methods={"GET"})
      * @param BlogCategory $category
+     * @return Response
      */
     public function category(BlogCategory $category = null)
     {
@@ -55,6 +56,7 @@ class BlogController extends AbstractController
      * Afficher un Article en Particulier
      * @Route("/article/{id}", name="blog_article", methods={"GET"})
      * @param Post|null $post
+     * @return Response
      */
     public function post(Post $post = null)
     {

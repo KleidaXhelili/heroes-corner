@@ -61,34 +61,14 @@ class PostController extends AbstractController
 
     /**
      * @Route("/{id}", name="post_show", methods={"GET"})
+     * @param Post $post
+     * @return Response
      */
     public function show(Post $post): Response
     {
-        //$commentaire = new Commentaire();
-        //$form = $this->createForm(CommentaireType::class, $commentaire);
-        //$form->handleRequest($request);
-
-        //$entityManager = $this->getDoctrine()->getManager();
-
-        //if ($form->isSubmitted() && $form->isValid()) {
-            
-            
-            //$commentaire->setUser($this->getUser());
-
-            //$commentaire->setPost($post);
-            
-            //$entityManager->persist($commentaire);
-            //$entityManager->flush();
-
-            //return $this->redirectToRoute('post_show', array('id'=> $post->getId()));
-        //}
-
-        //$commentaires = $entityManager->getRepository('App:Commentaire')->findBy(["post" => $post]);
 
         return $this->render('post/show.html.twig', [
-            'post' => $post,
-            //'form' => $form->createView(),
-            //'commentaires' =>$commentaires,
+            'post' => $post
         ]);
     }
 

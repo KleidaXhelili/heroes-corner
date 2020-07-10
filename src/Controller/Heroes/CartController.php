@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Heroes;
 
 use App\Service\Cart\CartService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -13,6 +15,8 @@ class CartController extends AbstractController
 {
     /**
      * @Route("/", name="cart_index", methods={"GET"})
+     * @param CartService $cartService
+     * @return Response
      */
     public function index(CartService $cartService)
     {
@@ -24,7 +28,10 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/shop/cart/add/{id}", name="cart_add", methods={"GET"})
+     * @Route("/add/{id}", name="cart_add", methods={"GET"})
+     * @param $id
+     * @param CartService $cartService
+     * @return RedirectResponse
      */
     public function addCart($id, CartService $cartService)
     {
@@ -33,7 +40,10 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/shop/cart/remove/{id}", name="cart_remove")
+     * @Route("/remove/{id}", name="cart_remove")
+     * @param $id
+     * @param CartService $cartService
+     * @return RedirectResponse
      */
     public function remove($id, CartService $cartService){
 

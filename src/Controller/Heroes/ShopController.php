@@ -22,10 +22,43 @@ class ShopController extends AbstractController
      */
     public function index()
     {
-        return $this->render('heroes/shop/index.html.twig');
+        # Affichage des produits par ordre DESC
+        $products = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findBy([],['id' => 'DESC']);
+
+        return $this->render('heroes/shop/index.html.twig', [
+            'products' => $products
+        ]);
     }
 
-    # TODO Une fonction pour afficher les produits d'une categorie
-    # TODO Une fonction pour afficher un produit
-    # TODO Une fonction pour afficher le panier
+    /**
+     * Affichage des produits d'une categorie
+     * @Route("/category/{id}", name="shop_category", methods={"GET"})
+     * @param Category $productCategory
+     * @return Response
+     */
+    public function productCategory(Category $productCategory = null){
+
+        $products = $productCategory->getProducts();
+
+        return $this->render('product/index.html.twig', [
+            'products' => $products
+        ]);
+    }
+
+    /**
+     * Affichage d'un Produit en particulier
+     * @Route("/product/{id}", name="shop_product", methods={"GET"})
+     * @param Product|null $product
+     * @return Response
+     */
+    public function product(Product $product = null){
+
+        return $this->render('product/show.html.twig', [
+            'product' => $product
+        ]);
+    }
+
+    # ???? TODO Une fonction pour afficher le panier
 }

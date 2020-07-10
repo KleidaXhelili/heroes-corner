@@ -22,6 +22,7 @@ class Category
     /**
      * @ORM\Column(type="string", length=50)
      */
+<<<<<<< Updated upstream
     private $mangas;
 
     /**
@@ -33,6 +34,10 @@ class Category
      * @ORM\Column(type="string", length=50)
      */
     private $bd;
+=======
+    private $titre;
+
+>>>>>>> Stashed changes
 
     /**
      * @ORM\OneToMany(targetEntity=Product::class, mappedBy="categorie")
@@ -49,6 +54,7 @@ class Category
         return $this->id;
     }
 
+<<<<<<< Updated upstream
     public function getMangas(): ?string
     {
         return $this->mangas;
@@ -81,6 +87,16 @@ class Category
     public function setBd(string $bd): self
     {
         $this->bd = $bd;
+=======
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+>>>>>>> Stashed changes
 
         return $this;
     }

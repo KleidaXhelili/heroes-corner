@@ -1,10 +1,31 @@
 easy_admin:
-  site_name : Heroes Corner
+    site_name : Heroes Corner 
     entities:
-        - App\Entity\BlogCategory
-        - App\Entity\Category
-        - App\Entity\Comment
-        - App\Entity\Order
-        - App\Entity\Post
-        - App\Entity\Product
-        - App\Entity\User
+        Category:
+            class: App\Entity\Category
+           
+
+        BlogCategory:
+            class: App\Entity\BlogCategory
+           
+            
+        Comment:
+            class: App\Entity\Comment
+            
+
+        Order:
+            class: App\Entity\Order
+            
+                
+        Post:
+            class: App\Entity\Post
+            
+
+        Product:
+            class: App\Entity\Product
+
+
+        User:
+            class: App\Entity\User
+           
+                  

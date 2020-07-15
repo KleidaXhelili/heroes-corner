@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Commande{% endblock %}
+
+{% block body %}
+    <h1>Passez une nouvelle commande</h1>
+
+    {{ include('order/_form.html.twig') }}
+
+    <a href="{{ path('order_index') }}">Retour à la liste</a>
+{% endblock %}

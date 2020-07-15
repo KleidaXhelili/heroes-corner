@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <h1>Ce que nos Heroes ont Produit!</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ product.titre }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ product.date ? product.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dessinateur</th>
+                <td>{{ product.dessinateur }}</td>
+            </tr>
+            <tr>
+                <th>Scénariste</th>
+                <td>{{ product.scenariste }}</td>
+            </tr>
+            <tr>
+                <th>Éditeur</th>
+                <td>{{ product.editeur }}</td>
+            </tr>
+            <tr>
+                <th>Résumé</th>
+                <td>{{ product.resume }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ product.prix }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ product.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('product_edit', {'id': product.id}) }}">Éditer</a>
+
+    {{ include('product/_delete_form.html.twig') }}
+{% endblock %}

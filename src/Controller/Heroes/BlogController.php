@@ -56,4 +56,12 @@ class BlogController extends AbstractController
     {
         # TODO Transmission a la vue du POST
     }
+
+    /**
+     * Afficher le menu de la boutique
+     */
+    public function menu()
+    {
+        # TODO Voir la fonction menu dans ShopController
+    }
 }

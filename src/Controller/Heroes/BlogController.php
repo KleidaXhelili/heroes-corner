@@ -27,7 +27,8 @@ class BlogController extends AbstractController
         # Afficher les dernières publication par ordre DESC
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
-            ->findBy([],['id' => 'DESC']);
+            ->findBy([],['created_at' => 'DESC'], 
+            ['limit' => 4]);
 
         return $this->render('heroes/blog/index.html.twig', [
             'posts' => $posts
@@ -36,32 +37,47 @@ class BlogController extends AbstractController
 
     /**
      * Afficher les articles d'une categorie
-     * @Route("/categorie/{id}", name="blog_category", methods={"GET"})
+     * @Route("/category/{id}", name="blog_category", methods={"GET"})
      * @param BlogCategory $category
+     * @return Response
      */
     public function category(BlogCategory $category = null)
     {
         # Récupérer les articles de la catégorie
         $articles = $category->getPosts();
-
-        # TODO Passer a la vue
+        
+        # Transmission a la vue
+        return $this->render('post/index.html.twig', [
+            'posts' => $articles
+        ]);
     }
 
     /**
      * Afficher un Article en Particulier
      * @Route("/article/{id}", name="blog_article", methods={"GET"})
      * @param Post|null $post
+     * @return Response
      */
     public function post(Post $post = null)
     {
-        # TODO Transmission a la vue du POST
+        return $this->render('post/show.html.twig', [
+            'post' => $post
+        ]);
     }
 
     /**
-     * Afficher le menu de la boutique
+     * Afficher le menu du blog
      */
     public function menu()
     {
-        # TODO Voir la fonction menu dans ShopController
+        # Récupération des catégories du blog
+        $categories = $this->getDoctrine()
+            ->getRepository(BlogCategory::class)
+            ->findAll();
+
+        # Transmettre a la vue les données
+        return $this->render("components/_menu-blog.html.twig", [
+            "categories" => $categories
+        ]);
     }
 }

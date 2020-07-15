@@ -6,15 +6,54 @@
 
 {% block body %}
 
-    {{ dump(posts) }}
-
     <main>
 
         <div class="container blog">
 
             <!--Carousel-->
-            <div class="row carousel">
-                <img src="{{ asset("images/blog/fetebd.jpg") }}">
+            <div class="container">
+                    
+                <div id="myCarousel" class="carousel slide">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li class="item1 active"></li>
+                    <li class="item2"></li>
+                    <li class="item3"></li>
+                    <li class="item4"></li>
+                </ol>
+                
+                <div class="carousel-inner">
+                    
+                        <div class="item active">
+                            
+                            <a href="actualites.html">
+                                <img class="d-block w-100" src="{{ asset("../uploads/images/blog/covers.jpg") }}" alt="First slide">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="interviews.html">
+                                <img class="d-block w-100" src="{{ asset("../uploads/images/blog/miyazakistudio.jpg") }}" alt="Second slide">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="interviews.html">
+                                <img class="d-block w-100" src="{{ asset("../uploads/images/blog/angouleme.jpg") }}" alt="Third slide">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="interviews.html">
+                                <img class="d-block w-100" src="{{ asset("../uploads/images/blog/supermanzelda.jpg") }}" alt="Fourth slide">
+                            </a>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" role="button">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
             </div>
 
             <hr class="line">
@@ -29,7 +68,7 @@
             <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset("images/blog/penelope.jpg") }}" class="card-img" alt="...">
+                    <img src="{{ asset("../uploads/images/blog/penelope.jpg") }}" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -39,35 +78,35 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="{{ asset("images/blog/cabu.png") }}" class="card-img" alt="...">
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a href="#" class="btn">Lire</a>
+            <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset("../uploads/images/blog/cabu.png") }}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn">Lire</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-        <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="{{ asset("images/blog/miyazaki.jpg") }}" class="card-img" alt="...">
             </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a href="#" class="btn">Lire</a>
+            <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset("../uploads/images/blog/miyazaki.jpg") }}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn">Lire</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
+            </div>
 
         <!--Pages-->
         {#<nav aria-label="Page navigation example">

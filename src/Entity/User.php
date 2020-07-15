@@ -54,7 +54,7 @@ class User implements UserInterface
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $cp;
 
@@ -64,7 +64,7 @@ class User implements UserInterface
     private $ville;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $numero;
 

@@ -24,42 +24,30 @@
         <hr class="line">
 
         <div class="container catalog">
-            <p class="text-center">
-                <strong>Nos dernières pépites</strong><br>
-            </p>
+            <h2 class="text-center mb-5">
+                <strong>Nos dernières pépites</strong>
+            </h2>
             <div class="row justify-content-around">
-                <div class="col-2">
-                    <a href="{{ path('shop_product', {'id': 2}) }}"><img src="{{ asset('uploads/images/products/comics/star-wars.jpg') }}" alt="Star-Wars - Nouvelles Aventures Tome 3" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Star Wars</h5>
-                        <p>Nouvelles aventures-3</p>
-                        <p class="catalog-price">9€80</p>
+                {% for product in products %}
+                    <div class="col-2">
+                        {% if product.image %}
+                            <a href="{{ path('product_show', {'id': product.id}) }}">
+                                <img src="{{ asset('uploads/images/products/')}}{{ product.image }}" alt="" class="img-fluid p-4 m-0 product-image cover">
+                            </a>
+                        {% else %}
+                            Pas d'images
+                        {% endif %}
+                        <div class="catalog-details">
+                            <h5>{{ product.titre }}</h5>
+                            <p>{{ product.soustitre }}</p>
+                            <p class="catalog-price">{{ product.prix }} &euro;</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-2">
-                    <a href="{{ path('shop_product', {'id': 3}) }}"><img src="{{ asset('uploads/images/products/bd/undertaker.jpg') }}" alt="Undertaker - L'Indien Blanc" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Undertaker</h5>
-                        <p>L'Indien Blanc</p>
-                        <p class="catalog-price">15€</p>
+                {% else %}
+                    <div>
+                        <span>Pas de produits</span>
                     </div>
-                </div>
-                <div class="col-2">
-                    <a href="{{ path('shop_product', {'id': 4}) }}"><img src="{{ asset('uploads/images/products/clover.jpg') }}" alt="Black Clover - Tome 3" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Black Clover</h5>
-                        <p>Tome 3</p>
-                        <p class="catalog-price">15€</p>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <a href="{{ path('shop_product', {'id': 5}) }}"><img src="{{ asset('uploads/images/products/comics/spiderman.jpg') }}" alt="Spiderman - La Saga Du Clone>" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Spiderman</h5>
-                        <p>La Saga Du Clone</p>
-                        <p class="catalog-price">60€</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <p class="text-center">
                 <a href="{{ path('product_index') }}">Pour voir tout nos produits, c'est par ici!</a>

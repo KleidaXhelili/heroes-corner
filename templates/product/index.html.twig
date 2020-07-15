@@ -7,7 +7,7 @@
 {% block title %}Nos produits{% endblock %}
 
 {% block body %}
-    <h2 class="text-center">HEROES CORNER vous présente : </h2><br>
+    <h2 class="text-center">HEROES CORNER vous présente : <br> {{ products.0.categorie.titre }}</h2><br>
     <div class="container-fluid">
         <div class="row justify-content-center ">
         {% for product in products %}

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Modak&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap');
+
 html{
     position: relative;
     min-height: 100vh; /* viewport height*/
@@ -39,7 +40,7 @@ footer li {
 /* ===============  PAGE D'ACCUEIL =================*/
 
 #first-body-background{
-    background-image: url('../uploads/images/comic-elements2.jpg');
+    background-image: url('../uploads/images/products/comic-elements2.jpg');
 }
 
 .title{
@@ -65,14 +66,14 @@ footer li {
     background-color: rgb(255,255,255);
     padding-top: 10px;
     box-shadow: 2px 2px 8px black;
-    font-family: 'helvetica';
+    font-family: 'helvetica', serif;
     border: 2px solid grey;
 }
 
 .box-title{
     font-weight: bold;
     font-size: 1.6em;
-    font-family: helvetica;
+    font-family: helvetica, serif;
     
 }
 
@@ -109,7 +110,7 @@ padding: 30px 60px;
 }
 
 .category-image{
-    background-image: url('../images/nouveautes.jpg');
+    background-image: url('../uploads/images/products/nouveautes.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -117,7 +118,7 @@ padding: 30px 60px;
 }
 
 .category-image2{
-    background-image: url('../images/comics.jpg');
+    background-image: url('../uploads/images/products/comics.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -125,7 +126,7 @@ padding: 30px 60px;
 }
 
 .category-image3{
-    background-image: url('../images/manga.jpg');
+    background-image: url('../uploads/images/products/manga.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -133,7 +134,7 @@ padding: 30px 60px;
 }
 
 .category-image4{
-    background-image: url('../images/bd5.png');
+    background-image: url('../uploads/images/products/bd5.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

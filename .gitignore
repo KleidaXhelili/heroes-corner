@@ -8,6 +8,7 @@
 /var/
 /vendor/
 /.idea
+/theme_html
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Éditer un produit{% endblock %}
+{% block header %}
+    {{ render(controller('App\\Controller\\Heroes\\ShopController::menu')) }}
+{% endblock %}
+
+{% block title %}Modifier un produit{% endblock %}
 
 {% block body %}
-    <h1>Éditer un produit</h1>
+    <h1>Modifier votre produit</h1>
 
     {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('product/_delete_form.html.twig', {'button_label' : 'Delete'}) }}
+    <a href="{{ path('product_index') }}"><button>Retour à la liste</button></a>
 
-    <a href="{{ path('product_index') }}">Retour à la liste</a>
+{% endblock %}
 
-    {{ include('product/_delete_form.html.twig') }}
+
+{% block footer %}
+    {% include 'components/_footer.html.twig' %}
 {% endblock %}

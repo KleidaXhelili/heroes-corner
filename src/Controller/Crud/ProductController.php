@@ -5,6 +5,7 @@ namespace App\Controller\Crud;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +18,8 @@ class ProductController extends AbstractController
 {
     /**
      * @Route("/", name="product_index", methods={"GET"})
+     * @param ProductRepository $productRepository
+     * @return Response
      */
     public function index(ProductRepository $productRepository): Response
     {
@@ -26,18 +29,30 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/shop/product/new", name="product_new", methods={"GET","POST"})
+     * @Route("/new", name="product_new", methods={"GET","POST"})
+     * //@IsGranted("ROLE_ADMIN)
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
+
+         /* if(!this->getUser()){
+             $this->addFlash('error', 'Vous devez être connecté pour accéder à cette page');
+             return $this->redirectToRoute('post_index');
+            }
+         */
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            // $product->setUser($this->getUser());
             $entityManager->persist($product);
             $entityManager->flush();
+
+            $this->addFlash('succes', "Bravo, vous venez d'ajouter un nouveau produit" );
 
             return $this->redirectToRoute('product_index');
         }
@@ -49,7 +64,9 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/shop/product/{id}", name="product_show", methods={"GET"})
+     * @Route("/{id}", name="product_show", methods={"GET"})
+     * @param Product $product
+     * @return Response
      */
     public function show(Product $product): Response
     {
@@ -59,7 +76,10 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/shop/product/{id}/edit", name="product_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="product_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Product $product
+     * @return Response
      */
     public function edit(Request $request, Product $product): Response
     {
@@ -79,7 +99,10 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/shop/product/{id}", name="product_delete", methods={"DELETE"})
+     * @Route("/{id}", name="product_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Product $product
+     * @return Response
      */
     public function delete(Request $request, Product $product): Response
     {

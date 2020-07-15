@@ -11,7 +11,6 @@ use Doctrine\Persistence\ObjectManager;
 
 class ProductFixtures extends Fixture
 {
-
     /**
      * Load data fixtures with the passed EntityManager
      * @param ObjectManager $manager
@@ -35,9 +34,9 @@ class ProductFixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $product = new Product();
             $product->setTitre('product ' . $i)
+                #->setImage('');
                 ->setCategorie($categorie)
                 ->SetDessinateur('lorem ipsum')
-                ->SetScenariste('lorem ipsum')
                 ->SetEditeur('lorem ipsum')
                 ->SetResume('lorem ipsum')
                 ->SetPrix(mt_rand(10,100))
@@ -50,9 +49,9 @@ class ProductFixtures extends Fixture
         for ($i = 5; $i < 10; $i++) {
             $product = new Product();
             $product->setTitre('product ' . $i)
+                #->setImage('');
                 ->setCategorie($categorie2)
                 ->SetDessinateur('lorem ipsum')
-                ->SetScenariste('lorem ipsum')
                 ->SetEditeur('lorem ipsum')
                 ->SetResume('lorem ipsum')
                 ->SetPrix(mt_rand(10,100))
@@ -65,9 +64,9 @@ class ProductFixtures extends Fixture
         for ($i = 10; $i < 15; $i++) {
             $product = new Product();
             $product->setTitre('product ' . $i)
+                #->setImage('');
                 ->setCategorie($categorie3)
                 ->SetDessinateur('lorem ipsum')
-                ->SetScenariste('lorem ipsum')
                 ->SetEditeur('lorem ipsum')
                 ->SetResume('lorem ipsum')
                 ->SetPrix(mt_rand(10,100))

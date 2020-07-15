@@ -195,6 +195,14 @@ padding: 30px 60px;
     color: black;
 }
 
+.footer-link {
+    color: #ffffff;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
+
 .view{
     margin-top: 70px;  
 }

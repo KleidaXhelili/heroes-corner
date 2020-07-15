@@ -27,8 +27,7 @@ class BlogController extends AbstractController
         # Afficher les dernières publication par ordre DESC
         $posts = $this->getDoctrine()
             ->getRepository(Post::class)
-            ->findBy([],['created_at' => 'DESC'], 
-            ['limit' => 4]);
+            ->findBy([],['created_at' => 'DESC'], 4);
 
         return $this->render('heroes/blog/index.html.twig', [
             'posts' => $posts

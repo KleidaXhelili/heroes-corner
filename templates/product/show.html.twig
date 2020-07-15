@@ -27,9 +27,7 @@
                     Catégorie : {{ product.categorie }}
                 </div>
                 <div class="price">{{ product.prix }}€</div>
-                <a href="">
-                    <button class="add-cart"type="button">Ajouter au panier</button>
-                </a>
+                <a class="btn btn-primary" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au Panier</a>
             </div>
         </div>
     </div>

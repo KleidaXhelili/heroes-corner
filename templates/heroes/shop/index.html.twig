@@ -10,13 +10,10 @@
             <div class="row">
                 <div class="col-6 category-intro">
                     <h2>NOUVEAUTÉS</h2>
-                    <p>
+                    <p >
                         La librairie Heroes-Corner vous propose depuis 2020 le meilleur de la <br><strong>BD</strong>, des <strong>MANGAS</strong> et <strong>COMICS</strong> en ligne. Retrouvez ici vos albums préférés mais aussi un large choix d'articles.
                         <br><br>En ces temps difficiles, toute l’équipe de Heroes-Corner fait son maximum pour vous permettre un peu d’évasion avec la lecture.
                         <br>Merci d’avance pour votre compréhension sur les délais d'acheminement de vos albums préférés.
-                    </p>
-                    <p>
-                        <strong><a href="{{ path('product_index') }}">Pour voir tout nos produits, c'est par ici!</a></strong>
                     </p>
                 </div>
                 <div class="col-6 category-image">
@@ -25,44 +22,36 @@
         </div>
 
         <hr class="line">
-        <h3 class="text-center">
-            <strong>Nos dernières pépites</strong><br>
-        </h3> <br>
+
         <div class="container catalog">
+            <h2 class="text-center mb-5">
+                <strong>Nos dernières pépites</strong>
+            </h2>
             <div class="row justify-content-around">
-                <div class="col-2">
-                    <a href="{{ path('category_index', {'id': }) }}"><img src="{{ asset('uploads/images/products/comics/star-wars.jpg') }}" alt="Star-Wars - Nouvelles Aventures Tome 3" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Star Wars</h5>
-                        <p>Nouvelles aventures-3</p>
-                        <p class="catalog-price">9€80</p>
+                {% for product in products %}
+                    <div class="col-2">
+                        {% if product.image %}
+                            <a href="{{ path('product_show', {'id': product.id}) }}">
+                                <img src="{{ asset('uploads/images/products/')}}{{ product.image }}" alt="" class="img-fluid p-4 m-0 product-image cover">
+                            </a>
+                        {% else %}
+                            Pas d'images
+                        {% endif %}
+                        <div class="catalog-details">
+                            <h5>{{ product.titre }}</h5>
+                            <p>{{ product.soustitre }}</p>
+                            <p class="catalog-price">{{ product.prix }} &euro;</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-2">
-                    <a href="{{ path('product_index') }}"><img src="{{ asset('uploads/images/products/bd/undertaker.jpg') }}" alt="Undertaker - L'Indien Blanc" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Undertaker</h5>
-                        <p>L'Indien Blanc</p>
-                        <p class="catalog-price">15€</p>
+                {% else %}
+                    <div>
+                        <span>Pas de produits</span>
                     </div>
-                </div>
-                <div class="col-2">
-                    <a href="{{ path('product_index') }}"><img src="{{ asset('uploads/images/products/clover.jpg') }}" alt="Black Clover - Tome 3" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Black Clover</h5>
-                        <p>Tome 3</p>
-                        <p class="catalog-price">15€</p>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <a href="{{ path('product_index') }}"><img src="{{ asset('uploads/images/products/comics/spiderman.jpg') }}" alt="Spiderman - La Saga Du Clone>" class="img-fluid p-0 m-0 catalog-image"></a>
-                    <div class="catalog-details">
-                        <h5>Spiderman</h5>
-                        <p>La Saga Du Clone</p>
-                        <p class="catalog-price">60€</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
+            <p class="text-center">
+                <a href="{{ path('product_index') }}">Pour voir tout nos produits, c'est par ici!</a>
+            </p>
         </div>
     </main>
 {% endblock %}

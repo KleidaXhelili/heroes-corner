@@ -48,7 +48,8 @@ class BlogController extends AbstractController
         
         # Transmission a la vue
         return $this->render('post/index.html.twig', [
-            'posts' => $articles
+            'posts' => $articles,
+            'category' => $category
         ]);
     }
 

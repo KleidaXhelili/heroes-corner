@@ -1,39 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Catégorie index{% endblock %}
+{% block title %}Catégorie Index{% endblock %}
 
 {% block body %}
-    <h1>La liste de nos Heroes-Catégories</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Mangas</th>
-                <th>Comics</th>
-                <th>BD</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.mangas }}</td>
-                <td>{{ category.comics }}</td>
-                <td>{{ category.bd }}</td>
-                <td>
-                    <a href="{{ path('category_show', {'id': category.id}) }}">Afficher</a>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">Éditer</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Pas de catégories</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% include 'product/index.html.twig' %}
 
     <a href="{{ path('category_new') }}">Créer une nouvelle catégorie</a>
 {% endblock %}
+
+

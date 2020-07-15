@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
+
+{% block header %}
+    {{ render(controller('App\\Controller\\Heroes\\ShopController::menu')) }}
+{% endblock %}
+
 {% block title %}Nouvelle Catégorie{% endblock %}
 
 {% block body %}
-    <h1>Créer une nouvelle Heroes-Catégorie</h1>
+    <h1>Créer une nouvelle catégorie</h1>
 
     {{ include('category/_form.html.twig') }}
 
     <a href="{{ path('category_index') }}">Retour à la liste</a>
+{% endblock %}
+
+{% block footer %}
+    {% include 'components/_footer.html.twig' %}
 {% endblock %}

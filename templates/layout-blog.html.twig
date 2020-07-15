@@ -22,15 +22,16 @@
                 </li>
 
             </ul>
-
-            <li class="nav-item active">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <em>Salut! {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a  href="">Se déconnecter</a>
-                {% else %}
-                    <a  href="">Se connecter</a> |
-                    <a  href="">S'inscrire</a>
-                {% endif %}
-            </li>
+            <ul>
+                <li class="nav-item active">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <em>Salut! {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a  href="">Se déconnecter</a>
+                    {% else %}
+                        <a  href="">Se connecter</a> |
+                        <a  href="">S'inscrire</a>
+                    {% endif %}
+                </li>
+            </ul>
         </div>
     </nav>
 {% endblock %}

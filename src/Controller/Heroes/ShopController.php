@@ -44,7 +44,7 @@ class ShopController extends AbstractController
 
         $products = $productCategory->getProduits();
 
-        return $this->render('product/index.html.twig', [
+        return $this->render('category/index.html.twig', [
             'products' => $products
         ]);
     }
@@ -78,5 +78,4 @@ class ShopController extends AbstractController
         ]);
     }
 
-    # ???? TODO Une fonction pour afficher le panier
 }

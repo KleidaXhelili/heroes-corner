@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block header %}
+    {{ render(controller('App\\Controller\\Heroes\\ShopController::menu')) }}
+{% endblock %}
+
 {% block title %}Liste Commandes{% endblock %}
 
 {% block body %}
-    <h1>La liste des Heroes-Commandes</h1>
+    <h1>Liste des commandes</h1>
 
     <table class="table">
         <thead>
@@ -34,4 +38,8 @@
     </table>
 
     <a href="{{ path('order_new') }}">Passer une nouvelle commande</a>
+{% endblock %}
+
+{% block footer %}
+    {% include 'components/_footer.html.twig' %}
 {% endblock %}

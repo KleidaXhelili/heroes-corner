@@ -7,13 +7,12 @@
 {% block title %}{{ post.titre }}{% endblock %}
 
 {% block body %}
-  
+
 
     <div class="container blog">
         <div>
             <h3 class="post-title">{{ post.titre }}</h3>
             <div>
-                <p class="post-author">Par {{post.user}}</p>
                 <p class="post-date"> Publié le {{ post.createdAt ? post.createdAt|date('d-m-Y H:i:s') : '' }}</p>
             </div>
         </div>
@@ -22,7 +21,7 @@
             <img src="{{ asset('uploads/images/blog/')}}{{ post.image }}">
         </div>
         <div class="post-content">
-            {{ post.contenu }}
+            {{ post.contenu | raw }}
         </div>
         <p>{{post.user}}</p>
     </div>

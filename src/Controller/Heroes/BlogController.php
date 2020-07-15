@@ -64,4 +64,22 @@ class BlogController extends AbstractController
             'post' => $post
         ]);
     }
+
+    /**
+     * Afficher le menu du blog
+     */
+    public function menu()
+    {
+        # Récupération des catégories du blog
+        $categories = $this->getDoctrine()
+            ->getRepository(BlogCategory::class)
+            ->findAll();
+
+        # Transmettre a la vue les données
+        return $this->render("components/_menu-blog.html.twig", [
+            "categories" => $categories
+        ]);
+    }
+
+    
 }

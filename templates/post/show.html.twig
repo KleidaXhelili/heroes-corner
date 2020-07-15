@@ -1,53 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Aticle{% endblock %}
+{% block header %}
+    {{ render(controller('App\\Controller\\Heroes\\BlogController::menu')) }}
+{% endblock %}
+
+{% block title %}{{ post.titre }}{% endblock %}
 
 {% block body %}
-    <h1>Post</h1>
+  
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ post.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ post.titre }}</td>
-            </tr>
-            <tr>
-                <th>Auteur</th>
-                <td>{{post.user}}</td>
-            </tr>
-            <tr>
-                <th>Date de création</th>
-                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Contenu</th>
-                <td>{{ post.contenu }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container blog">
+        <div>
+            <h3 class="post-title">{{ post.titre }}</h3>
+            <div>
+                <p class="post-author">Par {{post.user}}</p>
+                <p class="post-date"> Publié le {{ post.createdAt ? post.createdAt|date('d-m-Y H:i:s') : '' }}</p>
+            </div>
+        </div>
+        <hr class="post-line">
+        <div class="post-image row justify-content-around">
+            <img src="{{ asset('uploads/images/blog/')}}{{ post.image }}">
+        </div>
+        <div class="post-content">
+            {{ post.contenu }}
+        </div>
+        <p>{{post.user}}</p>
+    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn">{{ button_label|default('Save') }}</button>
-    {{ form_end(form) }}
 
     <hr>
 
-    <div class="container">
-        <h4>Liste des commentaires</h4>
+    <div class="container blog">
+        <h4 class="post-comment-title">Liste des commentaires</h4>
         {% for commentaire in post.comments %}
             Posté par {{ commentaire.user.prenom }} le {{commentaire.createdAt|date('Y-m-d H:i:s')}}
-            <p> {{ commentaire.text}} </p>
+            <p class="post-comment"> {{ commentaire.text}} </p>
         {% endfor %}
     </div>
+    <div>
+        <a href="{{ path('post_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('post_index') }}">Retour à la liste</a>
-
-    <a href="{{ path('post_edit', {'id': post.id}) }}">Modifier</a>
-
+        <a href="{{ path('post_edit', {'id': post.id}) }}">Modifier</a>
+    </div>
     {{ include('post/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block footer %}
+    {% include 'components/_footer.html.twig' %}
 {% endblock %}

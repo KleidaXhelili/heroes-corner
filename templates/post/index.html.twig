@@ -1,41 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Post index{% endblock %}
+{% block header %}
+    {{ render(controller('App\\Controller\\Heroes\\BlogController::menu')) }}
+{% endblock %}
+
+{% block title %}Les articles{% endblock %}
 
 {% block body %}
-    <h1>Post index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Auteur</th>
-                <th>Contenu</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    
+    <div class="container blog">
         {% for post in posts %}
-            <tr>
-                <td>{{ post.id }}</td>
-                <td>{{ post.titre }}</td>
-                <td>{{ post.user}}</td>
-                <td>{{ post.contenu }}</td>
-                <td>{{ post.createdAt ? post.createdAt|date('d-m-Y H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('post_show', {'id': post.id}) }}">Afficher</a>
-                    <a href="{{ path('post_edit', {'id': post.id}) }}">Modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
+        <h1 class="blog-category-title">{{ post.blogCategory}}</h1>
         {% endfor %}
-        </tbody>
-    </table>
+    {% for post in posts %}
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('uploads/images/blog/')}}{{ post.image }}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.titre }}</h5>
+                    <p class="card-text">{{ post.resume }}</p>
+                    <p class="card-date"> Publié le {{ post.createdAt ? post.createdAt|date('d-m-Y H:i:s') : '' }}</p>
+                    <p class="card-cat">{{ post.blogCategory}}</p>
+                    <a href="{{ path('post_show', {'id': post.id}) }}" class="btn">Lire</a>
+                    <a href="{{ path('post_edit', {'id': post.id}) }}" class="btn">Modifier</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div>
+        <p>no records found</p>
+    </div>
+    {% endfor %}
+    </div>
+
+
 
     <a href="{{ path('post_new') }}">Ajouter un nouvel article</a>
+{% endblock %}
+
+{% block footer %}
+    {% include 'components/_footer.html.twig' %}
 {% endblock %}

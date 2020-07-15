@@ -9,13 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+//use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 use App\Entity\Commentaire;
 use App\Form\CommentaireType;
 
 /**
- * @Route("/post")
+ * @Route("/blog/post")
  */
 class PostController extends AbstractController
 {
@@ -35,10 +35,16 @@ class PostController extends AbstractController
 
     /**
      * @Route("/new", name="post_new", methods={"GET","POST"})
-     * @IsGranted("ROLE_ADMIN")
+     * //@IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
+        /*if(!$this->getUser()) {
+           
+            $this->addFlash('error', ' Vous devez être connecté pour accéder à cette page');
+
+            return $this->redirectToRoute('post_index');
+        }*/
 
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
@@ -46,9 +52,11 @@ class PostController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $post->setAuteur($this->getUser());
+            //$post->setAuteur($this->getUser());
             $entityManager->persist($post);
             $entityManager->flush();
+
+            $this->addFlash('success', ' Félicitation! Votre article a bien été posté.');
 
             return $this->redirectToRoute('post_index');
         }
@@ -64,31 +72,9 @@ class PostController extends AbstractController
      */
     public function show(Post $post): Response
     {
-        //$commentaire = new Commentaire();
-        //$form = $this->createForm(CommentaireType::class, $commentaire);
-        //$form->handleRequest($request);
-
-        //$entityManager = $this->getDoctrine()->getManager();
-
-        //if ($form->isSubmitted() && $form->isValid()) {
-            
-            
-            //$commentaire->setUser($this->getUser());
-
-            //$commentaire->setPost($post);
-            
-            //$entityManager->persist($commentaire);
-            //$entityManager->flush();
-
-            //return $this->redirectToRoute('post_show', array('id'=> $post->getId()));
-        //}
-
-        //$commentaires = $entityManager->getRepository('App:Commentaire')->findBy(["post" => $post]);
 
         return $this->render('post/show.html.twig', [
             'post' => $post,
-            //'form' => $form->createView(),
-            //'commentaires' =>$commentaires,
         ]);
     }
 

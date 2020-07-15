@@ -26,8 +26,13 @@
 
 {% block body %}{% endblock %}
 {% block footer %}{% endblock %}
-{% block scripts %}
-    <script src="{{ asset('js/index.js') }}"></script>
+{% block javascripts %}
+    <script src="{{ asset('/js/index.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            console.log("Script working properly");
+        });
+    </script>
 {% endblock %}
 </body>
 </html>

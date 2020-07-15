@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La liste de nos produits{% endblock %}
+
+{% block body %}
+    <h1>La liste de nos produits</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Dessinateur</th>
+                <th>Scénariste</th>
+                <th>Éditeur</th>
+                <th>Résumé</th>
+                <th>Prix</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.titre }}</td>
+                <td>{{ product.date ? product.date|date('d-m-Y') : '' }}</td>
+                <td>{{ product.dessinateur }}</td>
+                <td>{{ product.scenariste }}</td>
+                <td>{{ product.editeur }}</td>
+                <td>{{ product.resume }}</td>
+                <td>{{ product.prix }}</td>
+                <td>{{ product.note }}</td>
+                <td>
+                    <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success float-right">Afficher</a>
+                    <a href="{{ path('product_edit', {'id': product.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Pas de produits</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_new') }}">Créer un nouveau produit</a>
+{% endblock %}

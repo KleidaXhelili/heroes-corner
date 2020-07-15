@@ -29,8 +29,8 @@
                     <em>Salut! {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a href="">Se déconnecter</a>
                 </li>
             {% endif %}
-                <li class="nav-item"><a href="#">Se connecter</a></li>
-                <li class="nav-item"><a href="#">S'inscrire</a></li>    
+                <li class="nav-item"><a href="{{ path('app_login') }}">Se connecter</a></li>
+                <li class="nav-item"><a href="{{ path('app_register') }}">S'inscrire</a></li>
         </ul>
     </div>
 </nav>

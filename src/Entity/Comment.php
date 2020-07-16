@@ -39,6 +39,10 @@ class Comment
      */
     private $post;
 
+    public function __construct()
+    {
+        $this->created_at = new \Datetime();
+    }
     
     public function getId(): ?int
     {

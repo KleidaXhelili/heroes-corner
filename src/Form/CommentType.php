@@ -13,8 +13,8 @@ class CommentType extends AbstractType
     {
         $builder
              
-            ->add('auteur')
             ->add('text')
+            
         ;
     }
 

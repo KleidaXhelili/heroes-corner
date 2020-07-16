@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment{% endblock %}
+
+{% block body %}
+    <h1>Comment</h1>
+
+    <div class="container blog">
+        <div>
+            <div>
+                <p > Publié le {{ post.createdAt ? post.createdAt|date('d-m-Y H:i:s') : '' }}</p>
+                <p>Par{{comment.user.prenom}}</p>
+            </div>
+        </div>
+        <div >
+            {{ comment.text }}
+        </div>  
+    </div>
+    
+
+
+    <a href="{{ path('post_index') }}">Retour à la liste</a>
+    <a href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+
+    {{ include('comment/_delete_form.html.twig') }}
+{% endblock %}

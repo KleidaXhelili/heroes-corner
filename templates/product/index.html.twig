@@ -7,14 +7,14 @@
 {% block title %}Nos produits{% endblock %}
 
 {% block body %}
-    <h2 class="text-center">HEROES CORNER vous présente : <br> {{ products.0.categorie.titre }}</h2><br>
-    <div class="container-fluid">
+    <div class="container-fluid py-4">
+        <h2 class="text-center mb-4 mt-4">HEROES CORNER VOUS PRÉSENTE SES ALBUMS : </h2>
         <div class="row justify-content-center ">
         {% for product in products %}
             <div class="col-3 product">
                 {% if product.image %}
                     <a href="{{ path('product_show', {'id': product.id}) }}">
-                        <img src="{{ asset('uploads/images/products/')}}{{ product.image }}" alt="" class="img-fluid p-4 m-0 product-image cover">
+                        <img src="{{ asset('uploads/images/products/')}}{{ product.image }}" alt="album" class="img-fluid p-4 m-0 product-image cover">
                     </a>
                 {% else %}
                     Pas d'images
@@ -23,8 +23,11 @@
             <div class="col-3 description">
                 <h3 class="mt-3">{{ product.titre }}</h3>
                 <h5>{{ product.soustitre }}</h5>
-                <div class="price">{{ product.prix }}€</div>
-                <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn">Modifier</a>
+                <div class="price pb-5">{{ product.prix }}€</div>
+                <div>
+                <a href="{{ path('product_edit', {'id': product.id}) }}" class="btn btn-danger mb-2">Modifier</a><br>
+                <a class="btn btn-danger" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au Panier</a>
+            </div>
             </div>
             {% else %}
                 <div>
@@ -32,9 +35,9 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="text-center">
-            <a href="{{ path('product_new') }}"><button type="button" class="btn btn-danger">Ajouter un nouveau produit</button></a>
-            <a href="{{ path('cart_index') }}"><button type="button" class="btn btn-danger">Afficher le panier</button></a>
+        <div class="text-center mb-9">
+            <a href="{{ path('product_new') }}" class="btn btn-danger">Ajouter un nouveau produit</a>
+            <a href="{{ path('cart_index') }}" class="btn btn-danger">Afficher le panier</a>
         </div>
     </div>
     <br>

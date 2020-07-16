@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center ">
             <div class="col-4 product">
-                <img src="{{ asset('uploads/images/products/')}}{{ product.image }}" alt="" class="img-fluid p-4 m-0 product-image cover">
+                <img src="{{ asset('uploads/images/products/')}}{{ product.image }}" alt="album" class="img-fluid p-4 m-0 product-image cover">
                 <!-- <img src="" alt="" class="img-fluid p-4 m-0 product-image planche"> -->
             </div>
             <div class="col-4 description">
@@ -27,7 +27,7 @@
                     Catégorie : {{ product.categorie }}
                 </div>
                 <div class="price">{{ product.prix }}€</div>
-                <a class="btn btn-primary" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au Panier</a>
+                <a class="btn btn-danger" href="{{ path('cart_add', {'id': product.id}) }}">Ajouter au panier</a>
             </div>
         </div>
     </div>

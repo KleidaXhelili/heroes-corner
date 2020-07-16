@@ -1,9 +1,6 @@
-{#{{ dump(categories) }}#}
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
             <li class="nav-item active">
                 <a class="nav-link" href="{{ path('shop_index') }}">Nouveautés</a>
             </li>
@@ -17,11 +14,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ path('blog_index') }}">Blog</a>
             </li>
-
         </ul>
 
         <ul class="navbar-nav">
-
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li class="nav-item">
                     <em>Salut! {{ app.user.prenom }} - {{ app.user.nom }}</em> || <a href="">Se déconnecter</a>
@@ -31,7 +26,6 @@
                 <li class="nav-item"><a href="{{ path('app_register') }}">| S'inscrire |</a></li>
             {% endif %}
             <li class="nav-item"><a href="{{ path('cart_index') }}">| Panier</a></li>
-
         </ul>
     </div>
 </nav>

@@ -15,6 +15,9 @@
                         <br><br>En ces temps difficiles, toute l’équipe de Heroes-Corner fait son maximum pour vous permettre un peu d’évasion avec la lecture.
                         <br>Merci d’avance pour votre compréhension sur les délais d'acheminement de vos albums préférés.
                     </p>
+                    <p class="float-right mt-5">
+                        <a href="{{ path('product_index') }}" class="text-danger font-weight-bold">Pour voir tout nos produits, c'est par ici!</a>
+                    </p>
                 </div>
                 <div class="col-6 category-image">
                 </div>
@@ -49,9 +52,6 @@
                     </div>
                 {% endfor %}
             </div>
-            <p class="text-center">
-                <a href="{{ path('product_index') }}">Pour voir tout nos produits, c'est par ici!</a>
-            </p>
         </div>
     </main>
 {% endblock %}

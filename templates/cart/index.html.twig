@@ -4,29 +4,29 @@
 
 {% block body %}
     <div class="bg-light p-3">
-        <h1>Votre panier</h1>
+        <h2 class="text-center mb-4">Votre panier</h2>
     </div>
+    <div class="table-responsive-sm">
     {% if items | length > 0 %}
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
-                <th>Produit</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th></th>
+                <th class="text-center">Produit</th>
+                <th class="text-center">Prix</th>
+                <th class="text-center">Quantité</th>
+                <th class="text-center">Total</th>
+                <th class="text-center">Action</th>
             </tr>
             </thead>
             <tbody>
             {% for item in items %}
                 <tr>
-                    <td>{{ item.product.titre }}</td>
-                    <td>{{ item.product.prix }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.prix * item.quantity }}</td>
-                    <td>
+                    <td class="text-center">{{ item.product.titre }}</td>
+                    <td class="text-center">{{ item.product.prix }}</td>
+                    <td class="text-center">{{ item.quantity }}</td>
+                    <td class="text-center">{{ item.product.prix * item.quantity }}</td>
+                    <td class="text-center">
                         <a href="{{ path('cart_remove', {'id' : item.product.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>
-                        <i class="fas fa-trash"></i>
                     </td>
                 </tr>
             {% endfor %}
@@ -34,13 +34,14 @@
             <tfoot>
             <tr>
                 <td colspan="3" class="text-right">Total : </td>
-                <td>{{ total }}€</td>
+                <td class="text-center">{{ total }}€</td>
                 <td></td>
             </tr>
             </tfoot>
         </table>
+        </div>
     {% else %}
-        <p>Votre panier est vide</p>
+        <p class="text-center">Votre panier est vide</p>
     {% endif %}
 
 {% endblock %}
